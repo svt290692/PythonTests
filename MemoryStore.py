@@ -20,30 +20,40 @@ class TopSideSection:
         self.elementTagLabel = Label(self.frame, text="Tags:", fg="#0066FF")
         self.tagElementEntry = Entry(self.frame, bg="#ccffff")
 
-        self.searchTitleTopLabel.grid(row=0, column=0)
+        self.addButton = Button(self.frame, text="Add", fg="#0066FF")
+
+        self.searchTitleTopLabel.grid(row=0, column=0,sticky=W)
 
         self.searchTitleLabel.grid(row=1, column=0)
         self.titleSearchEntry.grid(row=1, column=1)
         self.searchTagLabel.grid(row=1, column=2)
         self.tagSearchEntry.grid(row=1, column=3)
-        self.searchButton.grid(row=1, column=4)
+        self.searchButton.grid(row=1, column=4,sticky=W)
 
-        self.elementTitleTopLabel.grid(row=2, column=0)
+        self.elementTitleTopLabel.grid(row=2, column=0,sticky=W)
 
         self.elementTitleLabel.grid(row=3, column=0)
         self.titleElementEntry.grid(row=3, column=1)
         self.elementTagLabel.grid(row=3, column=2)
         self.tagElementEntry.grid(row=3, column=3)
+        self.addButton.grid(row=3, column=4,sticky=W)
 
+def addButtonPushed():
+    pass
+
+def searchButtonPushed():
+    pass
 
 root = Tk()
 
 topSection = TopSideSection(root)
 
 elementList = Listbox(root, bg="#8b0000")
-elementList.pack(side=LEFT, fill=Y)
+elementList.pack(side=LEFT,expand=True,fill=BOTH)
 
 textArea = Text(root, bg="#ffc966")
-textArea.pack(side=RIGHT, fill=Y)
+textArea.pack(side=LEFT,expand=True, fill=BOTH)
+
+topSection.addButton.bind("<Button-1>",addButtonPushed)
 
 mainloop()
